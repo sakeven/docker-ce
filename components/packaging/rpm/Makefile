@@ -41,7 +41,7 @@ SOURCE_FILES=engine.tgz cli.tgz docker.service docker.socket plugin-installers.t
 SOURCES=$(addprefix rpmbuild/SOURCES/, $(SOURCE_FILES))
 
 FEDORA_RELEASES := fedora-32 fedora-31
-CENTOS_RELEASES := centos-7 centos-8
+CENTOS_RELEASES := centos-7
 RHEL_RELEASES := rhel-7
 DISTROS := $(FEDORA_RELEASES) $(CENTOS_RELEASES) $(RHEL_RELEASES)
 
@@ -55,7 +55,7 @@ clean: ## remove build artifacts
 	$(RM) -r rpmbuild/
 
 .PHONY: rpm
-rpm: fedora centos ## build all rpm packages
+rpm: centos ## build all rpm packages
 
 .PHONY: fedora
 fedora: $(FEDORA_RELEASES) ## build all fedora rpm packages
